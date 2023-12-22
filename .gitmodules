@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:fujii-kazuki/docker-nginx-mysql-rails-vue-backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:fujii-kazuki/docker-nginx-mysql-rails-vue-frontend.git
