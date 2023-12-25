@@ -21,7 +21,8 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-password}
       MYSQL_HOST_NAME: db
     depends_on:
-      - db
+      db:
+        condition: service_started
     tty: true
     stdin_open: true
 
@@ -37,7 +38,10 @@ services:
     ports:
       - 80:80
     depends_on:
-      - backend
+      backend:
+        condition: service_started
+      frontend:
+        condition: service_started
     tty: true
     stdin_open: true
 
@@ -50,6 +54,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     depends_on:
-      - backend
+      backend:
+        condition: service_started
     tty: true
     stdin_open: true
